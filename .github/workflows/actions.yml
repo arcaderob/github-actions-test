@@ -1,6 +1,8 @@
 name: Actions Workflow
 
-on: [push, pull_request]
+on:
+  pull_request:
+    types: [closed, assigned, opened, repopened]
 
 jobs:
   run-github-actions:
@@ -26,4 +28,4 @@ jobs:
         with: 
           who-to-greet: Rob
       - name: Log Greeting Time
-        run: echo "${{ steps.greet.outputs.time }}" 
+        run: echo "${{ steps.greet.outputs.time }}"
